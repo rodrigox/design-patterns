@@ -2,8 +2,8 @@ package main;
 
 import java.math.BigDecimal;
 
-import deconto.CalculadoraDeDescontos;
-import loja.Orcamento;
+import loja.deconto.CalculadoraDeDescontos;
+import loja.orcamento.Orcamento;
 
 public class TesteDescontos {
 
@@ -11,10 +11,12 @@ public class TesteDescontos {
 		
 		Orcamento orcamento1 = new Orcamento(new BigDecimal("200"),6);
 		Orcamento orcamento2 = new Orcamento(new BigDecimal("1000"),1);
-
+		
 		CalculadoraDeDescontos calculadora = new CalculadoraDeDescontos();
 		System.out.println(calculadora.calcular(orcamento1));
 		System.out.println(calculadora.calcular(orcamento2));
+		
+		
 
 	}
 

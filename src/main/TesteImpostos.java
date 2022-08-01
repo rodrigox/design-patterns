@@ -2,9 +2,9 @@ package main;
 
 import java.math.BigDecimal;
 
-import imposto.CalculadoraDeImpostos;
-import imposto.ICMS;
-import loja.Orcamento;
+import loja.imposto.CalculadoraDeImpostos;
+import loja.imposto.ICMS;
+import loja.orcamento.Orcamento;
 
 public class TesteImpostos {
 
