@@ -1,22 +1,28 @@
 package loja.pedido;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import loja.orcamento.Orcamento;
+import loja.pedido.acao.AcaoAposGerarPedido;
 
 public class GeraPedidoHandler {
 
-	
-	// construtor com depencdency inection: repository, service ....
+private List<AcaoAposGerarPedido> acoes;	
 	
 	public void execute (GeraPedido dados) {
 		
 		Orcamento orcamento = new Orcamento(dados.getValorOrcamento(), dados.getQuantidadeItens());
 		Pedido pedido = new Pedido(dados.getCliente(), LocalDateTime.now(), orcamento);
-		
-		System.out.println("Salvar pedido no banco de dados");
-		System.out.println("Enviar email co dados do novo pedido");
+		acoes.forEach(a ->a.executarAcao(pedido));
 		
 	}
 
+	public GeraPedidoHandler(List<AcaoAposGerarPedido> acoes) {
+		super();
+		this.acoes = acoes;
+	}
+
+	
+	
 }
